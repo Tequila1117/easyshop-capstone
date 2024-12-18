@@ -62,6 +62,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         return products;
     }
 
+    //Method to LIST by category:
     @Override
     public List<Product> listByCategoryId(int categoryId)
     {
@@ -92,6 +93,8 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
 
+
+    //Method to get by ID:
     @Override
     public Product getById(int productId)
     {
