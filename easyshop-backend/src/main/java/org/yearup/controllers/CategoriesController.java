@@ -1,5 +1,6 @@
 package org.yearup.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.yearup.data.CategoryDao;
 import org.yearup.data.ProductDao;
@@ -15,7 +16,9 @@ import java.util.List;
 
 
 
-
+@RestController
+@RequestMapping("/categories")
+@CrossOrigin
 
 
 public class CategoriesController
@@ -25,13 +28,21 @@ public class CategoriesController
 
 
     // create an Autowired controller to inject the categoryDao and ProductDao
+    @Autowired
+    public CategoriesController(CategoryDao categoryDao, ProductDao productDao) {
+        this.categoryDao = categoryDao;
+        this.productDao = productDao;
+    }
 
     // add the appropriate annotation for a get action
-    public List<Category> getAll()
-    {
-        // find and return all categories
-        return null;
+    @GetMapping
+    public List<Category> getAll() {
+        return categoryDao.getAllCategories();   // find and return all categories
     }
+
+
+
+
 
     // add the appropriate annotation for a get action
     public Category getById(@PathVariable int id)
