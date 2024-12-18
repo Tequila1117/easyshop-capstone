@@ -71,7 +71,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
 
 
     @Override
-    //Method to create a new category:
+    //Method to CREATE a new category:
     public Category create(Category category) {
         String name = category.getName();
         String description = category.getDescription();
@@ -95,7 +95,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
 
 
 
-        // Method to Update a category:
+        // Method to UPDATE a category:
         @Override
         public void update (int categoryId, Category category) {
         String query = """
@@ -117,14 +117,27 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
 
         }
 
+
+        // Method to DELETE a category:
         @Override
-        public void delete ( int categoryId)
+        public void delete ( int categoryId) {
+        String query = """
+                DELETE FROM categories
+                WHERE category_id = ?
+                """;
+            try (Connection connection = datasource.getConnection()) {
+                PreparedStatement deleteCategory = connection.prepareStatement(query);
+                deleteCategory.setInt(1, categoryId);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
         {
-            // delete category
+
         }
 
-        private Category mapRow (ResultSet row) throws SQLException
-        {
+        private Category mapRow (ResultSet row) throws SQLException {
             int categoryId = row.getInt("category_id");
             String name = row.getString("name");
             String description = row.getString("description");
