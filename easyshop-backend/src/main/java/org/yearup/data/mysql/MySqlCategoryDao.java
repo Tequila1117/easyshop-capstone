@@ -3,11 +3,12 @@ package org.yearup.data.mysql;
 import org.springframework.stereotype.Component;
 import org.yearup.data.CategoryDao;
 import org.yearup.models.Category;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+import java.sql.*;
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -44,42 +45,76 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-            return findCategories;
-        }
+        return findCategories;
+    }
 
+    @Override
+    //Method to retrieve category by ID:
+    public Category getById(int id) {
+        String name, description;
+        String query = """
+                    SELECT * FROM  category
+                    WHERE category_id = ?
+                """;
+        try (Connection connection = datasource.getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            name = rs.getString("name");
+            description = rs.getString("description");
+            Category category = new Category(id, name, description);
+            return category;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @Override
+    //Method to create a new category:
+    public Category create(Category category) {
+        String name = category.getName();
+        String description = category.getDescription();
+
+        try (Connection connection = datasource.getConnection()) {
+            PreparedStatement stmt = connection.prepareStatement("""
+                    INSERT INTO categories(name, description)
+                    VALUE(?, ?);
+                    """, PreparedStatement.RETURN_GENERATED_KEYS);
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+
+            while (rs.next()) {
+                int rows = rs.getInt(1);
+                return new Category(rows, name, description);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } return null;
+    }
+
+
+
+        // Method to Update a category:
         @Override
-        //Method to retrieve category by ID:
-        public Category getById ( int id) {
-            String name, description;
-            String query = """
-                        SELECT * FROM  category
-                        WHERE category_id = ?
-                    """;
+        public void update (int categoryId, Category category) {
+        String query = """
+                UPDATE categories
+                SET category_id = ?, name ?, description = ?
+                WHERE category_id = ?""";
+
             try (Connection connection = datasource.getConnection()) {
                 PreparedStatement stmt = connection.prepareStatement(query);
-                ResultSet rs = stmt.executeQuery();
+                stmt.setInt(1,category.getCategoryId());
+                stmt.setString(2, category.getName());
+                stmt.setString(3, category.getDescription());
+                stmt.setInt(4, category.getCategoryId());
+                stmt.executeUpdate();
 
-                name = rs.getString("name");
-                description = rs.getString("description");
-                Category category = new Category(id, name, description);
-                return category;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-        }
 
-
-        @Override
-        public Category create (Category category)
-        {
-            // create a new category
-            return null;
-        }
-
-        @Override
-        public void update ( int categoryId, Category category)
-        {
-            // update category
         }
 
         @Override
