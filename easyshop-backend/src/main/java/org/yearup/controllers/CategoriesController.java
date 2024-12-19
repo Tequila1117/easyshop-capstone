@@ -93,7 +93,7 @@ public class CategoriesController
 
     public void deleteCategory(@PathVariable int id) {
 
-        categoryDao.delete(id);// delete the category by id
+        categoryDao.delete(id); // delete the category by id
 
     }
 }

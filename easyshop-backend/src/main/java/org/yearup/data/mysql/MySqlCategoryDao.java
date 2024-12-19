@@ -30,7 +30,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         int id;
         String name, description;
         String query = """
-                SELECT * FROM category;""";
+                SELECT * FROM categories;""";
         ArrayList<Category> findCategories = new ArrayList<>();
         try (Connection connection = datasource.getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(query);
@@ -53,11 +53,12 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
     public Category getById(int id) {
         String name, description;
         String query = """
-                    SELECT * FROM  category
+                    SELECT * FROM  categories
                     WHERE category_id = ?
                 """;
         try (Connection connection = datasource.getConnection()) {
             PreparedStatement stmt = connection.prepareStatement(query);
+
             ResultSet rs = stmt.executeQuery();
 
             name = rs.getString("name");
@@ -100,15 +101,15 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         public void update (int categoryId, Category category) {
         String query = """
                 UPDATE categories
-                SET category_id = ?, name ?, description = ?
+                SET name ?, description = ?
                 WHERE category_id = ?""";
 
             try (Connection connection = datasource.getConnection()) {
                 PreparedStatement stmt = connection.prepareStatement(query);
-                stmt.setInt(1,category.getCategoryId());
-                stmt.setString(2, category.getName());
-                stmt.setString(3, category.getDescription());
-                stmt.setInt(4, category.getCategoryId());
+
+                stmt.setString(1, category.getName());
+                stmt.setString(2, category.getDescription());
+                stmt.setInt(3, categoryId);
                 stmt.executeUpdate();
 
             } catch (SQLException e) {
