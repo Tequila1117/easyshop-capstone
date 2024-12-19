@@ -69,6 +69,7 @@ public class CategoriesController
     // add annotation to ensure that only an ADMIN can call this function
 @PostMapping
 @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category addCategory(@RequestBody Category category)
     {
         return categoryDao.create(category); // insert the category
@@ -79,6 +80,7 @@ public class CategoriesController
     // add annotation to ensure that only an ADMIN can call this function
     @PutMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public void updateCategory(@PathVariable int id, @RequestBody Category category) {
         categoryDao.update(id, category);   // update the category by id
 
@@ -88,8 +90,8 @@ public class CategoriesController
     // add annotation to call this method for a DELETE action - the url path must include the categoryId
     // add annotation to ensure that only an ADMIN can call this function
     @DeleteMapping("/{id}")
-    @PreAuthorize("Role('ADMIN')")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
 
     public void deleteCategory(@PathVariable int id) {
 

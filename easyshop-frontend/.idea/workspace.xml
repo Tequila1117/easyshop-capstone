@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="34f92897-058a-489f-a8b4-659d8a016dd0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../easyshop-backend/src/main/java/org/yearup/controllers/CategoriesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easyshop-backend/src/main/java/org/yearup/controllers/CategoriesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../easyshop-backend/src/main/java/org/yearup/data/mysql/MySqlCategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easyshop-backend/src/main/java/org/yearup/data/mysql/MySqlCategoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2qRSQbJefA6ol6YtGtLEZ38kpAe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/easyshop-capstone/easyshop-frontend"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34f92897-058a-489f-a8b4-659d8a016dd0" name="Changes" comment="" />
+      <created>1734623879933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734623879933</updated>
+    </task>
+    <servers />
+  </component>
+</project>
