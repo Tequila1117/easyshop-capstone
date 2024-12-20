@@ -72,10 +72,7 @@ I updated the search logic to correctly filter products based on the provided cr
 
 **Fix Details:**
 
-- When an users update a product, the correct product is updated. This prevents duplicates in the database and ensures that the existing product’s details (like price, description, etc.) are correctly updated.
-Development Notes
-I focused on implementing backend functionality using Spring Boot.
-Ensured that only ADMIN users have permission to create/delete products and categories.
+- When an users update a product, the correct product is updated. This prevents duplicates in the database and ensures that the existing product’s details (like price, description, etc.) are correctly updated. I focused on implementing backend functionality using Spring Boot. Ensured that only ADMIN users have permission to create/delete products and categories.
 
 
 
