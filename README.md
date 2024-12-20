@@ -23,7 +23,7 @@ The backend API includes:
 
 I implemented the missing methods in the CategoriesController class, which had been created but not yet functional. I added the necessary annotations and called the methods to handle category functions.
 
-Ex: Only users with the ADMIN role are allowed to perform actions like adding, updating, or deleting categories.
+Ex (interesting piece of code): Only users with the ADMIN role are allowed to perform actions like adding, updating, or deleting categories.
 
 <img width="575" alt="UPDATEandDELETE" src="https://github.com/user-attachments/assets/108f4bfb-938f-4965-94b1-3375f51c9da1" />
 
