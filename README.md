@@ -25,8 +25,15 @@ I implemented the missing methods in the CategoriesController class, which had b
 
 Ex: Only users with the ADMIN role are allowed to perform actions like adding, updating, or deleting categories.
 
-![UPDATEandDELETE.PNG](..%2FUsers%2FStudent%2FPictures%2FUPDATEandDELETE.PNG)
-![callmethods.PNG](..%2FUsers%2FStudent%2FPictures%2Fcallmethods.PNG)
+<img width="575" alt="UPDATEandDELETE" src="https://github.com/user-attachments/assets/108f4bfb-938f-4965-94b1-3375f51c9da1" />
+
+
+<img width="445" alt="callmethods" src="https://github.com/user-attachments/assets/eb8af01b-ecf6-43a8-be5f-4925c7b630eb" />
+
+
+
+
+
 Changes:
 - Implemented methods for CRUD operations (Create, Read, Update, Delete) for categories.
 
@@ -41,12 +48,19 @@ I fixed two  bugs with the products functionality. There was a search/filter iss
 ## 1. Search Bug Fix:
 
    Users had reported that the product search functionality was returning incorrect results, especially when filtering by category or price range. The max parameter needed to be added.
-![Product bug.PNG](..%2FUsers%2FStudent%2FPictures%2FProduct%20bug.PNG)
+   
+   
+   <img width="347" alt="Product bug" src="https://github.com/user-attachments/assets/77780066-f658-4ea9-9395-2b3629ab0011" />
+
+   
 
 Fix Details:
 The search URL accepts query parameters for category, color, and price range:
 
-![ProductSearch.PNG](..%2FUsers%2FStudent%2FPictures%2FProductSearch.PNG)
+
+<img width="434" alt="ProductSearch" src="https://github.com/user-attachments/assets/e833b77f-b450-4729-967c-55082241e802" />
+
+
 
 
 
@@ -69,7 +83,9 @@ Ensured that only ADMIN users have permission to create/delete products and cate
 
 - I tested all functionality using java script to ensure the results were passed.
 
+<img width="749" alt="PASStest1" src="https://github.com/user-attachments/assets/0a23837c-dbbe-4f6e-99ad-ec92a9dc4dda" />
+
+<img width="748" alt="PASStest2" src="https://github.com/user-attachments/assets/a6b6a264-4728-4f77-a2a5-7bf3d8324c08" />
 
 
-![PASStest1.PNG](..%2FUsers%2FStudent%2FPictures%2FPASStest1.PNG)
-![PASStest2.PNG](..%2FUsers%2FStudent%2FPictures%2FPASStest2.PNG)
+
