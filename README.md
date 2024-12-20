@@ -67,7 +67,7 @@ Ensured that only ADMIN users have permission to create/delete products and cate
 
 ## Testing
 
-- I tested all functionality with various criteria to ensure the results were passed.
+- I tested all functionality using java script to ensure the results were passed.
 
 
 
