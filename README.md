@@ -1,4 +1,4 @@
-# EASY SHOP Capstone
+# EASY SHOP Capstone 🛒 
 
 ## Summary
 
