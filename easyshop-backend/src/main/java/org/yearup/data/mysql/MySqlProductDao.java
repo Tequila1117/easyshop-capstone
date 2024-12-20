@@ -22,7 +22,6 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color)
     {
         List<Product> products = new ArrayList<>();
-
         String sql = "SELECT * FROM products " +
                 "WHERE (category_id = ? OR ? = -1) " +
                 "   AND (price >= ? OR ? = -1) " +
@@ -47,18 +46,15 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
             statement.setString(8, color);
 
             ResultSet row = statement.executeQuery();
-
             while (row.next())
             {
                 Product product = mapRow(row);
                 products.add(product);
             }
-        }
-        catch (SQLException e)
+        } catch (SQLException e)
         {
             throw new RuntimeException(e);
         }
-
         return products;
     }
 
